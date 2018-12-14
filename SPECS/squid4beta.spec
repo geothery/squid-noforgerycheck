@@ -6,8 +6,8 @@ Version:  %{version_number}
 Release:  %{release_number}%{?dist}
 Summary:  The Squid proxy caching server
 Epoch:    7
-Packager: Geoffrey Thery (geoffrey.thery@decathlon.com)
-Vendor:   
+Packager: Geoffrey Thery (geoffrey.thery@gmail.com)
+Vendor:   Decathlon
 # See CREDITS for breakdown of non GPLv2+ code
 License:  GPLv2+ and (LGPLv2+ and MIT and BSD and Public Domain)
 Group:    System Environment/Daemons
@@ -273,10 +273,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/squid/security_file_certgen
 %{_libdir}/squid/url_lfs_rewrite
 
-#error: File not found: /home/rpm/rpmbuild/BUILDROOT/squid-4.0.5-1.el7.centos.x86_64/usr/lib64/squid/cert_valid.pl
-#error: File not found: /home/rpm/rpmbuild/BUILDROOT/squid-4.0.5-1.el7.centos.x86_64/usr/lib64/squid/ntlm_smb_lm_auth
-#error: File not found: /home/rpm/rpmbuild/BUILDROOT/squid-4.0.5-1.el7.centos.x86_64/usr/lib64/squid/ssl_crtd
-
 
 %pre
 if ! getent group squid >/dev/null 2>&1; then
@@ -317,5 +313,7 @@ fi
     chmod 750 /var/lib/samba/winbindd_privileged  >/dev/null 2>&1 || :
 
 %changelog
+* Fri Dec 14 2018 Geoffrey Thery <geoffrey.thery@gmail.com>
+- Release 4.3-1 Patched with Host Header Forgery checks disabled
 * Tue Jun 05 2018 Eliezer Croitoru <eliezer@ngtech.co.il>
 - Release 4.0.27-3 Beta, This is a testing version.
