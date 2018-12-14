@@ -6,8 +6,8 @@ Version:  %{version_number}
 Release:  %{release_number}%{?dist}
 Summary:  The Squid proxy caching server
 Epoch:    7
-Packager: Eliezer Croitoru <eliezer@ngtech.co.il>
-Vendor:   NgTech Ltd
+Packager: Geoffrey Thery (geoffrey.thery@decathlon.com)
+Vendor:   
 # See CREDITS for breakdown of non GPLv2+ code
 License:  GPLv2+ and (LGPLv2+ and MIT and BSD and Public Domain)
 Group:    System Environment/Daemons
@@ -22,7 +22,8 @@ Source6:  squid.nm
 Source7:  squidshut.sh
 Patch0:   pinger_off_v4.patch
 Patch1:   suspendbyoptionsonly.patch
-#Patch2:   assertion_FwdState.cc_serverConnection_eq_conn-trunk-t4-squid4.patch
+Patch2:   client_side_request.cc.patch
+#Patch3:   assertion_FwdState.cc_serverConnection_eq_conn-trunk-t4-squid4.patch
 
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: bash >= 2.0
@@ -79,7 +80,7 @@ lookup program (dnsserver), a program for retrieving FTP data
 %setup -q
 %patch0
 %patch1
-#%patch2
+%patch2
 
 %package helpers
 Group: System Environment/Daemons
